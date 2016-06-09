@@ -1,0 +1,23 @@
+import nltk
+from nltk import Nonterminal, nonterminals, Production, CFG
+nonterminal1 = Nonterminal('NP')
+nonterminal2 = Nonterminal('VP')
+nonterminal3 = Nonterminal('PP')
+print(nonterminal1.symbol())
+print(nonterminal2.symbol())
+print(nonterminal3.symbol())
+print(nonterminal1==nonterminal2)
+print(nonterminal2==nonterminal3)
+print(nonterminal1==nonterminal3)
+S, NP, VP, PP = nonterminals('S, NP, VP, PP')
+N, V, P, DT = nonterminals('N, V, P, DT')
+production1 = Production(S, [NP, VP])
+production2 = Production(NP, [DT, NP])
+production3 = Production(VP, [V, NP,NP,PP])
+print(production1.lhs())
+print(production1.rhs())
+print(production3.lhs())
+print(production3.rhs())
+print(production3 == Production(VP, [V,NP,NP,PP]))
+print(production2 == production3)
+
